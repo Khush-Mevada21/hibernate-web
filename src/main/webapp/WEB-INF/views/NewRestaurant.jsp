@@ -11,9 +11,14 @@
 
 <form action="saverestaurant" method="post">
 
-	Name : <input type="text" name="name"/><br><br>
-	Address : <input type="text" name="address"/><br><br>
-	Category : <input type="text" name="category"/> <br><br>
+	Name : <input type="text" name="name" value="${restaurantName}"/>
+	<span style="color:red">${error}</span><br><br>
+	
+	Address : <input type="text" name="address" value="${restaurantAddress}"/>
+	<span style="color:red">${error}</span><br><br>
+	
+	Category : <input type="text" name="category" value="${restaurantCategory }"/> 
+	<span style="color:red">${error}</span><br><br>
 	
 	<input type="submit" value="Add Restaurant"/>
 	
