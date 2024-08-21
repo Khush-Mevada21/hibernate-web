@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,7 +42,35 @@ public class RestaurantController {
 		
 		model.addAttribute("restaurants",restaurants);
 		
-		//restaurantRepository.deleteById(restaurantId);
 		return "ListRestaurant";
+	}
+	
+	@GetMapping("/deleterestaurant")
+	public String deleteRestaurant(@RequestParam("restaurantId") Integer restaurantId)
+	{
+		restaurantRepository.deleteById(restaurantId);
+		
+		return "redirect:/listrestaurants";
+	}
+	
+	@GetMapping("/editrestaurant")
+	public String editRestaurant(@RequestParam("restaurantId") Integer restaurantId, Model model)
+	{
+		Optional<RestaurantEntity> op = restaurantRepository.findById(restaurantId);
+		
+		if(op.isEmpty()){
+			return "Error";
+		}
+		else {
+			model.addAttribute("restaurant",op.get());
+			return "EditRestaurant";
+		}
+	}
+	
+	@PostMapping("/updaterestaurant")
+	public String updateRestaurant(RestaurantEntity restaurantEntity)
+	{
+		restaurantRepository.save(restaurantEntity);
+		return "redirect:/listrestaurants";
 	}
 }

@@ -30,7 +30,8 @@
 			out.print("<td>" + r.getRestaurantId() + "</td>");
 			out.print("<td>" + r.getName() + "</td>");
 			out.print("<td>" + r.getCategory() + "</td>");
-			out.print("<td> <a href='deleterestaurants?restaurantId="+ r.getRestaurantId() +"'> DELETE </a> </td> ");
+			out.print("<td> <a href='deleterestaurant?restaurantId="+ r.getRestaurantId() +"'> DELETE </a> ");
+			out.print(" | <a href='editrestaurant?restaurantId="+ r.getRestaurantId() +"'> EDIT </a> </td> ");
 			out.print("</tr>");
 		}
 	%>
