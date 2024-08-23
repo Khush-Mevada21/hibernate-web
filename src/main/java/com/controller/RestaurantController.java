@@ -33,12 +33,13 @@ public class RestaurantController {
 	@PostMapping("/saverestaurant")
 	public String saveRestaurant(@Validated RestaurantEntity restaurantEntity,BindingResult result ,Model model) 
 	{
-		
+	
+		model.addAttribute("restaurant",restaurantEntity);
 		if (result.hasErrors())
 		{
 			System.out.println(result.getAllErrors());
-			String errorMessage = result.getFieldError("name").getDefaultMessage();
-			model.addAttribute("error",errorMessage);
+			
+			model.addAttribute("result",result);
 			return "NewRestaurant";
 		}
 		else
