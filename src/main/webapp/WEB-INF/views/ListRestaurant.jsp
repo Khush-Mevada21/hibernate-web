@@ -9,7 +9,7 @@
 <title>List Restaurants</title>
 </head>
 <body>
-
+	
 	<h3>List of Restaurants</h3>
 	
 	<%

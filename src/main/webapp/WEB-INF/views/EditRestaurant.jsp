@@ -9,7 +9,7 @@
 <body>
 
 <h2>Edit Restaurant</h2>
-
+ 
 <form action="updaterestaurant" method="post">
 
 	<input type="hidden" name="restaurantId" value="${restaurant.restaurantId }"/>
